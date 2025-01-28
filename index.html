@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Premium Car Rental Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+</head>
+<body class="font-[&#39;Poppins&#39;] bg-gray-50">
+    <nav class="bg-white shadow-sm fixed w-full z-50">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <img src="logo-removebg-preview.png" alt="Logo" class="h-8 w-auto"/>
+                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="#home" class="text-custom border-custom border-b-2 px-1 inline-flex items-center h-full text-sm font-medium">Home</a>
+                        <a href="#vehicles" class="text-gray-500 hover:text-custom px-1 inline-flex items-center h-full text-sm font-medium">Vehicles</a>
+                        <a href="#services" class="text-gray-500 hover:text-custom px-1 inline-flex items-center h-full text-sm font-medium">Services</a>
+                        <a href="#contact" class="text-gray-500 hover:text-custom px-1 inline-flex items-center h-full text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <button class="bg-custom text-white !rounded-button px-6 py-2 text-sm font-medium hover:bg-opacity-90 transition-colors">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section id="home" class="pt-24 pb-16 bg-gradient-to-b from-gray-50 to-white">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <h1 class="text-5xl font-bold text-gray-900 leading-tight">Experience Luxury <br/>Car Rental Service</h1>
+                        <p class="text-xl text-gray-600">Choose from our premium selection of luxury vehicles for your next adventure. Best rates guaranteed.</p>
+                        <div class="flex space-x-4">
+                            <button class="bg-custom text-white !rounded-button px-8 py-3 text-lg font-medium hover:bg-opacity-90 transition-colors">Browse Cars</button>
+                            <button class="border-2 border-custom text-custom !rounded-button px-8 py-3 text-lg font-medium hover:bg-custom hover:text-white transition-colors">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="porshe.png" alt="Luxury Car" class="w-full h-auto object-cover"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="vehicles" class="py-12 bg-white">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gray-50 rounded-lg shadow-sm p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div class="relative">
+                            <i class="fas fa-car absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            <select class="w-full pl-10 pr-3 py-3 bg-white border border-gray-200 rounded-lg appearance-none" onchange="handleVehicleSelect(event)">
+                                <option>Select Vehicle Type</option>
+                                <option>Luxury Sedan</option>
+                                <option>SUV</option>
+                                <option>Sports Car</option>
+                            </select>
+                        </div>
+                        <div class="relative">
+                            <i class="fas fa-calendar absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            <input type="date" class="w-full pl-10 pr-3 py-3 bg-white border border-gray-200 rounded-lg" onchange="handleDateSelect(event)"/>
+                        </div>
+                        <div class="relative">
+                            <i class="fas fa-map-marker-alt absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" placeholder="Pickup Location" class="w-full pl-10 pr-3 py-3 bg-white border border-gray-200 rounded-lg" onchange="handleLocationInput(event)"/>
+                        </div>
+                        <button class="bg-custom text-white !rounded-button py-3 text-lg font-medium hover:bg-opacity-90 transition-colors" onclick="handleSearch()">
+                            <i class="fas fa-search mr-2"></i>Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="services" class="py-16 bg-white">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12">Featured Vehicles</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                        <img src="sclass-removebg-preview.png" alt="Luxury Car" class="w-full h-48 object-cover rounded-lg mb-4"/>
+                        <h3 class="text-xl font-semibold mb-2">Mercedes-Benz S-Class</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-gray-600">$200/day</span>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1">4.9</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-custom text-white !rounded-button py-2 font-medium hover:bg-opacity-90 transition-colors" onclick="handleBooking('Mercedes-Benz S-Class', 200)">Book Now</button>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                        <img src="BMW_G07_1X7A1696-removebg-preview.png" alt="Luxury SUV" class="w-full h-48 object-cover rounded-lg mb-4"/>
+                        <h3 class="text-xl font-semibold mb-2">BMW X7</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-gray-600">$250/day</span>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1">4.8</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-custom text-white !rounded-button py-2 font-medium hover:bg-opacity-90 transition-colors" onclick="handleBooking('BMW X7', 250)">Book Now</button>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                        <img src="porshe.png" alt="Sports Car" class="w-full h-48 object-cover rounded-lg mb-4"/>
+                        <h3 class="text-xl font-semibold mb-2">Porsche 911</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-gray-600">$300/day</span>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1">5.0</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-custom text-white !rounded-button py-2 font-medium hover:bg-opacity-90 transition-colors" onclick="handleBooking('Porsche 911', 300)">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="py-16 bg-gray-50">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg p-8 text-center hover:shadow-lg transition-shadow">
+                        <i class="fas fa-shield-alt text-4xl text-custom mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-4">100% Secure Booking</h3>
+                        <p class="text-gray-600">Your security is our top priority. All transactions are encrypted and protected.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-8 text-center hover:shadow-lg transition-shadow">
+                        <i class="fas fa-clock text-4xl text-custom mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-4">24/7 Support</h3>
+                        <p class="text-gray-600">Our customer service team is available round the clock to assist you.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-8 text-center hover:shadow-lg transition-shadow">
+                        <i class="fas fa-dollar-sign text-4xl text-custom mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-4">Best Price Guarantee</h3>
+                        <p class="text-gray-600">We offer competitive rates and price matching to ensure the best deals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-16 bg-white">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-custom text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+                        <h3 class="text-xl font-semibold mb-2">Choose Your Car</h3>
+                        <p class="text-gray-600">Select from our wide range of premium vehicles</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-custom text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+                        <h3 class="text-xl font-semibold mb-2">Pick Date &amp; Location</h3>
+                        <p class="text-gray-600">Choose your pickup and return details</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-custom text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+                        <h3 class="text-xl font-semibold mb-2">Make Payment</h3>
+                        <p class="text-gray-600">Secure and fast payment process</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-custom text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+                        <h3 class="text-xl font-semibold mb-2">Enjoy Your Ride</h3>
+                        <p class="text-gray-600">Get the keys and start your journey</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-16 bg-custom">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-white">
+                        <h2 class="text-3xl font-bold mb-6">Ready to Experience Luxury?</h2>
+                        <p class="text-lg mb-8 opacity-90">Book your premium vehicle now and enjoy the ultimate driving experience.</p>
+                        <button class="bg-white text-custom !rounded-button px-8 py-3 text-lg font-medium hover:bg-opacity-90 transition-colors" onclick="scrollToBooking()">
+                            Start Booking
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <img src="https://creatie.ai/ai/api/search-image?query=A 3D vector-style image of a modern luxury sports car with dynamic angles and premium finish, on a clean solid background that emphasizes the car's sleek design&width=600&height=400&orientation=landscape&removebg=true&flag=f543dcc2-570c-461f-86e3-9683dd98f284&flag=5abc4201-eea0-411e-b417-2d2430cc093b" alt="Luxury Car" class="w-full h-auto"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Logo" class="h-8 w-auto mb-4"/>
+                    <p class="text-gray-400">Premium car rental service providing luxury vehicles for your special occasions.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#vehicles" class="text-gray-400 hover:text-white transition-colors">Vehicle Fleet</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt w-5"></i>
+                            <span class="ml-2">123 Luxury Street, NY 10001</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone w-5"></i>
+                            <span class="ml-2">+1 234 567 890</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope w-5"></i>
+                            <span class="ml-2">contact@luxuryrentals.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2024 Luxury Car Rentals. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function handleVehicleSelect(event) {
+            console.log("Vehicle selected:", event.target.value);
+        }
+
+        function handleDateSelect(event) {
+            console.log("Date selected:", event.target.value);
+        }
+
+        function handleLocationInput(event) {
+            console.log("Location input:", event.target.value);
+        }
+
+        function handleSearch() {
+            console.log("Search button clicked");
+        }
+
+        function handleBooking(vehicle, price) {
+            console.log(`Booking ${vehicle} for $${price}/day`);
+        }
+
+        function scrollToBooking() {
+            document.querySelector('section#vehicles').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
