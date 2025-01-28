@@ -10,6 +10,52 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
     <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
     <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+    <style>
+        /* Custom CSS for additional responsiveness */
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+            }
+            .navbar-menu.active {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: white;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                padding: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .navbar-toggle {
+                display: block;
+            }
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-section img {
+                margin-top: 20px;
+            }
+            .vehicle-search {
+                grid-template-columns: 1fr;
+            }
+            .featured-vehicles {
+                grid-template-columns: 1fr;
+            }
+            .why-choose-us {
+                grid-template-columns: 1fr;
+            }
+            .how-it-works {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body class="font-[&#39;Poppins&#39;] bg-gray-50">
     <nav class="bg-white shadow-sm fixed w-full z-50">
@@ -17,7 +63,7 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <img src="logo-removebg-preview.png" alt="Logo" class="h-8 w-auto"/>
-                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                    <div class="hidden md:ml-6 md:flex md:space-x-8 navbar-menu">
                         <a href="#home" class="text-custom border-custom border-b-2 px-1 inline-flex items-center h-full text-sm font-medium">Home</a>
                         <a href="#vehicles" class="text-gray-500 hover:text-custom px-1 inline-flex items-center h-full text-sm font-medium">Vehicles</a>
                         <a href="#services" class="text-gray-500 hover:text-custom px-1 inline-flex items-center h-full text-sm font-medium">Services</a>
@@ -26,12 +72,15 @@
                 </div>
                 <div class="flex items-center">
                     <button class="bg-custom text-white !rounded-button px-6 py-2 text-sm font-medium hover:bg-opacity-90 transition-colors">Book Now</button>
+                    <button class="navbar-toggle md:hidden ml-4" onclick="toggleNavbar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
     <main>
-        <section id="home" class="pt-24 pb-16 bg-gradient-to-b from-gray-50 to-white">
+        <section id="home" class="pt-24 pb-16 bg-gradient-to-b from-gray-50 to-white hero-section">
             <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div class="space-y-8">
@@ -51,7 +100,7 @@
         <section id="vehicles" class="py-12 bg-white">
             <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-gray-50 rounded-lg shadow-sm p-6">
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 vehicle-search">
                         <div class="relative">
                             <i class="fas fa-car absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
                             <select class="w-full pl-10 pr-3 py-3 bg-white border border-gray-200 rounded-lg appearance-none" onchange="handleVehicleSelect(event)">
@@ -79,7 +128,7 @@
         <section id="services" class="py-16 bg-white">
             <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-center mb-12">Featured Vehicles</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 featured-vehicles">
                     <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
                         <img src="sclass-removebg-preview.png" alt="Luxury Car" class="w-full h-48 object-cover rounded-lg mb-4"/>
                         <h3 class="text-xl font-semibold mb-2">Mercedes-Benz S-Class</h3>
@@ -122,7 +171,7 @@
         <section id="contact" class="py-16 bg-gray-50">
             <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 why-choose-us">
                     <div class="bg-white rounded-lg p-8 text-center hover:shadow-lg transition-shadow">
                         <i class="fas fa-shield-alt text-4xl text-custom mb-4"></i>
                         <h3 class="text-xl font-semibold mb-4">100% Secure Booking</h3>
@@ -144,7 +193,7 @@
         <section class="py-16 bg-white">
             <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 how-it-works">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-custom text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
                         <h3 class="text-xl font-semibold mb-2">Choose Your Car</h3>
@@ -187,7 +236,7 @@
     </main>
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 footer-content">
                 <div>
                     <img src="logo-removebg-preview.png" alt="Logo" class="h-8 w-auto mb-4"/>
                     <p class="text-gray-400">Premium car rental service providing luxury vehicles for your special occasions.</p>
@@ -264,6 +313,11 @@
 
         function scrollToBooking() {
             document.querySelector('section#vehicles').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleNavbar() {
+            const navbarMenu = document.querySelector('.navbar-menu');
+            navbarMenu.classList.toggle('active');
         }
     </script>
 </body>
